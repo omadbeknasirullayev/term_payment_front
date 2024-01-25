@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#clients,
+#home {
+  width: 100%;
+  background-color: rgba(240, 242, 250, 1);
+}
+
+ /** bu faqat contentlar uchun kontenir **/
+.content_container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.head {
+  text-align: center;
+  padding: 20px 0px;
+  font-size: 20px;
+}
+
+
