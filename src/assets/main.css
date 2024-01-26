@@ -2,24 +2,26 @@
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
 }
 
 #clients,
 #home {
   width: 100%;
   background-color: rgba(240, 242, 250, 1);
+  min-height: 100vh;
 }
 
  /** bu faqat contentlar uchun kontenir **/
 .content_container {
-  width: 1200px;
-  margin: 0 auto;
+  width: 1250px;
+  margin: 10px auto;
 }
 
-.head {
+/* .head {
   text-align: center;
   padding: 20px 0px;
   font-size: 20px;
-}
+} */
 
 

@@ -34,7 +34,7 @@
 <style lang="css" scoped>
     #sidebar {
         width: 50vh;
-        height: 100vh;
+        min-height: 100;
         background-color: rgba(47, 73, 209, 1);
     }
 
