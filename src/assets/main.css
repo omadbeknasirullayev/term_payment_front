@@ -6,6 +6,7 @@
 }
 
 #clients,
+#client_info,
 #home {
   width: 100%;
   background-color: rgba(240, 242, 250, 1);

@@ -1,33 +1,52 @@
 <script lang="ts" setup>
 
      const clients = [
-      {seriy: "Ab3679272", name: "ali", phone: '998902234', },
-      {seriy: "Ab3679272", name: "ali", phone: '998902234', },
-      {seriy: "Ab3679272", name: "ali", phone: '998902234', },
-      {seriy: "Ab3679272", name: "ali", phone: '998902234', },
-      {seriy: "Ab3679272", name: "ali", phone: '998902234', },
-      {seriy: "Ab3679272", name: "ali", phone: '998902234', },
-      {seriy: "Ab3679272", name: "ali", phone: '998902234', },
-      {seriy: "Ab3679272", name: "ali", phone: '998902234', },
-      {seriy: "Ab3679272", name: "ali", phone: '998902234', },
-      {seriy: "Ab3679272", name: "ali", phone: '998902234', },
+      {passport_seria: "Ab3679272", fullname: "ali", phone_number: '998902234', },
+      {passport_seria: "Ab3679272", fullname: "ali", phone_number: '998902234', },
+      {passport_seria: "Ab3679272", fullname: "ali", phone_number: '998902234', },
+      {passport_seria: "Ab3679272", fullname: "ali", phone_number: '998902234', },
+      {passport_seria: "Ab3679272", fullname: "ali", phone_number: '998902234', },
+      {passport_seria: "Ab3679272", fullname: "ali", phone_number: '998902234', },
+      {passport_seria: "Ab3679272", fullname: "ali", phone_number: '998902234', },
+      {passport_seria: "Ab3679272", fullname: "ali", phone_number: '998902234', },
+      {passport_seria: "Ab3679272", fullname: "ali", phone_number: '998902234', },
+      {passport_seria: "Ab3679272", fullname: "ali", phone_number: '998902234', },
     ]
+
+
+    // import axios from 'axios';
+    // import {storeToRefs} from 'pinia'
+    // import {useCounterStore} from "../../../stores/counter"
+
+    // const clients = storeToRefs(useCounterStore)
+
+    //   const nom = async() =>  {
+        
+    //     const c = await axios.get("http://localhost:5000/clients")
+    //     clients.value = c.data?.data
+    //     console.log(clients.value);
+        
+    //   }
+    // nom()
+      
+
+
 </script>
 
 <template>
       <ul class="client content_container">
       <div class="client-item head" >
         <p > T/R </p>
-        <p> Passport seriya</p>
+        <p> Passport passport_seriaa</p>
         <p > Ismi </p>
         <p > Telefon raqami </p>
       </div>
 
       <li class="client-item" v-for="(client, index) in clients" :key="index">
         <p class="client-item-content"> {{index + 1}} </p>
-        <p class="client-item-content"> {{client.seriy}} </p>
-        <p class="client-item-content"> {{client.name}} </p>
-        <p class="client-item-content"> {{client.phone}} </p>
+        <p class="client-item-content"> {{client.passport_seria}} </p>
+        <p class="client-item-content"> {{client.fullname}} </p>
+        <p class="client-item-content"> {{client.phone_number}} </p>
       </li>
     </ul>
 </template>
@@ -38,6 +57,7 @@
 
   .client {
     margin-top: 5rem;
+    min-height: 30rem;
     background: #FFF;
     box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.25);
   }

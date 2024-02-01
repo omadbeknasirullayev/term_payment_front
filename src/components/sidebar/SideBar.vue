@@ -18,7 +18,7 @@
                 <router-link class="sidebar_menu_link" to="/clients"> clients </router-link>
             </li>
             <li>
-                <router-link class="sidebar_menu_link" to="/teacher">teacher</router-link>
+                <router-link class="sidebar_menu_link" to="/clientinfo">clientInfo</router-link>
             </li>
             <li>
                 <router-link class="sidebar_menu_link" to="/groups">groups</router-link>
