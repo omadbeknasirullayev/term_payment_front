@@ -2,20 +2,23 @@
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  overflow: hidden;
+  overflow: auto;
 }
 
 #clients,
 #client_info,
+#products,
 #home {
-  width: 100%;
+  margin-left: 22%;
+  width: 78%;
+  padding: 0.5rem 1rem;
   background-color: rgba(240, 242, 250, 1);
   min-height: 100vh;
 }
 
  /** bu faqat contentlar uchun kontenir **/
 .content_container {
-  width: 1250px;
+  width: 98%;
   margin: 10px auto;
 }
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import ClientSelfInfo from "@/components/clients/client_info/ClientSelfInfo.vue"
+    import ClientSelfInfo from "@/components/clients/ClientSelfInfo.vue"
 </script>
 
 

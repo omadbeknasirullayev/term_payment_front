@@ -1,8 +1,8 @@
 
 <script setup lang="ts">
-  import AddClient from "@/components/clients/add_client/AddClient.vue"
-  import ClientsLists from "@/components/clients/clients_lists/ClienstLists.vue"
-  import ClientInfo from "@/components/clients/client_info/ClientInfo.vue"
+  import AddClient from "@/components/clients/AddClient.vue"
+  import ClientsLists from "@/components/clients/ClienstLists.vue"
+  import ClientInfo from "@/components/clients/ClientInfo.vue"
 </script>
 
 <template>

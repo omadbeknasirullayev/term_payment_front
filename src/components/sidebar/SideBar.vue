@@ -21,7 +21,7 @@
                 <router-link class="sidebar_menu_link" to="/clientinfo">clientInfo</router-link>
             </li>
             <li>
-                <router-link class="sidebar_menu_link" to="/groups">groups</router-link>
+                <router-link class="sidebar_menu_link" to="/products">products</router-link>
             </li>
             <li>
                 <router-link class="sidebar_menu_link" to="/attendance">attendance</router-link>
@@ -33,8 +33,9 @@
 
 <style lang="css" scoped>
     #sidebar {
-        width: 50vh;
-        min-height: 100;
+        width: 22%;
+        min-height: 100vh;
+        position: fixed;
         background-color: rgba(47, 73, 209, 1);
     }
 
