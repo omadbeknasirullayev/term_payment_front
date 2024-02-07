@@ -1,66 +1,58 @@
 <script setup lang="ts">
+import AppLabelInput from "@/shared/inputs/AppLabelInput.vue";
+import { useProductsState } from "../../stores/products";
+import Button from "@/shared/buttons/button.vue";
 
-  import AppLabelInput from "@/shared/inputs/AppLabelInput.vue"
-  import {useLabelInfo} from "../../stores/products"
+import { ref } from "vue";
+const is_add_feature = ref(true);
+const productState = useProductsState();
 
-  import {ref} from 'vue'
-  const is_add_feature = ref(true)
-  const label_info = useLabelInfo()
-  // const useLabelInfo = useLabelInfo()
-  // const label = label_info.label
-  console.log(label_info);  
+const change_is_add_feature = () => {
+  is_add_feature.value = is_add_feature.value ? false : true;
+};
+
+const add_feature_input = (e) => {
+  e.preventDefault()
+  const len = productState.feature_label.length
+  productState.feature_label.push([
+    {
+      label_name: `Key${len}`,
+      type: "text",
+      placeholder: `Key${len}`,
+      id: `key${len}`,
+      name: `key${len}`,
+      requied: true
+    },
+    {
+      label_name: `Value${len}`,
+      type: "text",
+      placeholder: `Value${len}`,
+      id: `value${len}`,
+      name: `value${len}`,
+      requied: true
+    }
+  ]);
+};
+
+const delete_feature_input = () => {
   
+  productState.feature_label = productState.feature_label.splice(0, 1)
+}
 
-  // const label_info = [
-  //   {
-  //     label_name: "Maxsulot nomi",
-  //     type: "text",
-  //     placeholder: "Maxsulot nomi",
-  //     id: "name",
-  //     name: "name",
-  //     requied: true
-  //   },
-  //   {
-  //     label_name: "Maxsulot narxi",
-  //     type: "text",
-  //     placeholder: "Maxsulot narxi",
-  //     id: "price",
-  //     name: "price",
-  //     requied: true
-  //   },
-  //   {
-  //     label_name: "Maxsulot soni",
-  //     type: "text",
-  //     placeholder: "Maxsulot soni",
-  //     id: "count",
-  //     name: "count",
-  //     requied: true
-  //   },
 
-  // ]
-
-  const change_is_add_feature = () => {
-    is_add_feature.value = false
-  }
 
 </script>
 
 <template>
   <div class="content_container">
     <template v-if="is_add_feature">
-
       <p class="add-product-title">Product qo'shish</p>
-{{label_info.count}}
-      <AppLabelInput 
-        :label_name="d" 
-        :placeholder="`salom`"
-      > </AppLabelInput>
 
       <form action="#" method="POST">
         <div class="add-product-inputs">
-
-          <AppLabelInput 
-            v-for="(item, index) of label_info" :key="index"
+          <AppLabelInput
+            v-for="(item, index) of productState.labels"
+            :key="index"
             :type="item.type"
             :name="item.name"
             :placeholder="item.placeholder"
@@ -68,56 +60,51 @@
             :value="item.value"
           />
 
-          <!-- <label for="name" class="add-product-label">
-
-            <span>Maxsulot nomi</span>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Maxsulot nomi"
-                required
-              />
-
+          <label for="client_address" class="add-product-label">
+            <span>Qo'shimcha ma'lumotlar qo'shish</span>
+            <input type="button" class="add-feature-btn" value="OK" @click="change_is_add_feature" />
           </label>
-
-        <label for="price" class="add-product-label">
-
-          <span>Maxsulot narxi</span>
-          <input type="text" name="price" id="peice" placeholder="Maxsulot narxi" required />
-
-        </label>
-
-        <label for="count" class="add-product-label">
-
-          <span>Maxsulot nechtaligi</span>
-          <input
-            type="tel"
-            name="count"
-            id="count"
-            placeholder="Maxsulot soni"
-            required
-          />
-
-        </label>
-
-        <label for="client_address" class="add-product-label">
-
-          <span>Qo'shimcha ma'lumotlar qo'shish</span>
-          <input type="button" class="add-feature-btn" value="OK" @click="change_is_add_feature">
-
-        </label> -->
-
-
-      </div>
+        </div>
         <button type="submit" class="add-product-btn">Qo'shish</button>
-    </form>
-  </template>
+      </form>
+    </template>
 
-  <template v-else>
+    <template v-else>
       <div class="add-feature-product">
         <div class="feature">
-          salom
+          <form action="#">
+            <div
+              class="feature-form-item"
+              v-for="(item, index) of productState.feature_label"
+              :key="index"
+            >
+
+              <AppLabelInput
+                class="feature-input"
+                :type="item[0].type"
+                :name="item[0].name"
+                :placeholder="item[0].placeholder"
+                :label_name="item[0].label_name"
+                :value="item[0].value"
+              />
+              <AppLabelInput
+                class="feature_input"
+                :type="item[1].type"
+                :name="item[1].name"
+                :placeholder="item[1].placeholder"
+                :label_name="item[1].label_name"
+                :value="item[1].value"
+              />
+
+            </div>
+          </form>
+
+          <div class="feature-btns">
+            <Button @click="add_feature_input" :name="'Add'" class="add-feature-back-btn"></Button>
+            <Button @click="delete_feature_input" :name="'Delete'" class="add-feature-back-btn"></Button>
+            <Button @click="change_is_add_feature" :name="'Back'" class="add-feature-back-btn"></Button>
+          </div>
+        
         </div>
       </div>
     </template>
@@ -182,13 +169,36 @@
 }
 
 .add-feature-product {
-  width: 40rem;
+  width: 70rem;
+  margin: 0 auto;
   background-color: aqua;
 }
 
-
 .add-feature-btn {
   cursor: pointer;
+}
 
+.feature-input {
+  
+}
+
+.feature-form-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.add-feature-back-btn {
+  width: 5rem;
+  margin-top: 1rem;
+}
+
+.feature-btns {
+  margin-top: 2rem;
+  padding: 0 5rem;
+}
+
+.feature-btns button {
+  margin-right: 2rem;
 }
 </style>

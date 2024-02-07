@@ -10,11 +10,7 @@ import { defineProps } from "vue";
         placeholder: String,
         required: Boolean,
         value: String
-    })
-
-    console.log(props.label_name);
-    
-
+    }) 
 
 </script>
 
